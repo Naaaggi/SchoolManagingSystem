@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Manage students
+    </title>
+    <link rel="stylesheet" href="student.css">
+    <script src="student.js"></script>
+</head>
+
+<body>
+    <h1>Managing Students</h1>
+    <table>
+        <tr>
+            <td>
+                <form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
+                    <div>
+                        <label>StudentId*</label><label class="validation-error hide" id="StudentIdValidationError">This field is required.</label>
+                        <input type="text" name="StudentId" id="StudentId">
+                    </div>
+                    <div>
+                        <label>First Name*</label><label class="validation-error hide" id="FirstNameValidationError">This field is required.</label>
+                        <input type="text" name="firstname" id="firstname">
+                    </div>
+                    <div>
+                        <label>Last Name</label>
+                        <input type="text" name="lastname" id="lastname">
+                    </div>
+                    <div>
+                        <label>Date of Birth</label>
+                        <input type="date" name="dob" id="dob">
+                    </div>
+                    <div>
+                        <label>Gender</label>
+                            <label><input type="radio" name="gender" id="gender" value="Male" checked>Male</label>
+                            <label><input type="radio" name="gender" id="gender" value="Female">Female</label>
+                            <label><input type="radio" name="gender" id="gender" value="Divers">Divers</label>
+                    </div>
+                    <div><br></div>
+                    <div>
+                        <label>Department*</label><label class="validation-error hide" id="DepartmentValidationError">This field is required.</label> 
+                        <select name="department" id="department">
+                            <option value="EI">School of Engineering – Energy and Information(EI)</option>
+                            <option value="TL">School of Engineering – Technology and Life(TL)</option>
+                            <option value="BBS">HTW Berlin Business School(BBS)</option>
+                            <option value="CB">School of Computing, Communication and Business(CB)</option>
+                            <option value="DC">School of Design and Culture(DC)</option>
+                          </select>
+                    </div>
+                    <div>
+                        <label>Email*</label><label class="validation-error hide" id="EmailValidationError">This field is required.</label>
+                        <input type="email" name="email" id="email">
+                    </div>
+                    <div  class="form-action-buttons">
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>
+            </td>
+            <td>
+                <table class="list" id="employeeList">
+                    <thead>
+                        <tr>
+                            <th>Student Id</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Date of Birth</th>
+                            <th>Gender</th>
+                            <th>Department</th>
+                            <th>Email</th>
+                            <th></th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
