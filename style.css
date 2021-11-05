@@ -36,6 +36,7 @@ form{
         margin: 3rem;
 }
 .rating {
+    
     font-weight: bold;
     border-radius: 3px;
     color: white;
@@ -43,11 +44,11 @@ form{
     padding: 5px;
     text-transform: uppercase;
   }
-  .weakPassword { background-color: #EF1111; }
+  .weakPassword { background-color: #EF1111; margin-left:130px;}
 
-  .moderatePassword { background-color: #FFC700; }
+  .moderatePassword { background-color: #FFC700; margin-left:100px; }
   
-  .strongPassword { background-color: #22BA3E; }
+  .strongPassword { background-color: #22BA3E; margin-left:120px; }
 
 .form-control{
         font-size: 1rem;
