@@ -25,6 +25,13 @@ h1{
         font-size: 25px;
         text-align: center;
 }
+.submit{
+    position: absolute;
+    margin-left: 75px;
+    
+
+
+}
 
 form{
         margin: 3rem;
