@@ -5,6 +5,6 @@ fetch("./students.json")
 .then(function(data) {
     console.log(data);
     for (let i in data){
-    document.querySelector(".test").innerText += data[i].ID +' ';
+    document.querySelector(".test").innerText += data[i].ID;
     }
 })
