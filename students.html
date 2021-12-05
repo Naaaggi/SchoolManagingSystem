@@ -60,26 +60,20 @@
                     </div>
                     <div>
                         <label>Date of Birth</label><label class="validation-error hide" id="DOBValidationError">Invalid date of birth. You must be between 17 and 60.</label>
-                        <input type="date" name="dob" id="dob">
-                        <script>
-                        var maxToday = document.getElementById("dob");
-                        var today = new Date();
-                        var dd = String(today.getDate()).padStart(2, '0');
-                        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-                        var yyyy = today.getFullYear();
+                        <input type="date" name="dob" id="dob" onmouseover="maxDay();this.onmouseover=null">
 
-                        today = yyyy + '-' + mm + '-' + dd;
-                        maxToday.setAttribute('max', today);
-
-                        </script>
+ 
                     </div>
+                    <div><br></div>
+
                     <div>
                         <label>Gender</label>
                             <label><input type="radio" name="gender" id="gender" value="Male" checked>Male</label>
                             <label><input type="radio" name="gender" id="gender" value="Female">Female</label>
-                            <label><input type="radio" name="gender" id="gender" value="Divers">Divers</label>
                     </div>
                     <div><br></div>
+                    <div><br></div>
+
                     <div>
                         <label>Department*</label><label class="validation-error hide" id="DepartmentValidationError">This field is required.</label> 
                         <select name="department" id="department">

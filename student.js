@@ -1,5 +1,18 @@
-var selectedRow = null
 
+function maxDay(){
+var maxToday = document.getElementById("dob");
+console.log(maxToday);
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+today = yyyy + '-' + mm + '-' + dd;
+maxToday.setAttribute('max', today);
+
+}
+
+var selectedRow = null;
 function onFormSubmit() {
     if (validateSI() && validateFN() &&  validateDM()  && validateEM() && validateDOB())  {
         var formData = readFormData();
