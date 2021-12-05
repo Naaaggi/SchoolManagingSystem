@@ -1,7 +1,6 @@
 
 function maxDay(){
 var maxToday = document.getElementById("dob");
-console.log(maxToday);
 var today = new Date();
 var dd = String(today.getDate()).padStart(2, '0');
 var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -105,13 +104,11 @@ function validateDOB(){
     isValid = true;
     var today = new Date();
     var birthDate = new Date(document.getElementById("dob").value);
-    console.log(birthDate);
     var age = today.getFullYear() - birthDate.getFullYear();
     var m = today.getMonth() - birthDate.getMonth();
    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
       age--;
    }
-   console.log(age);
    if ((age < 17) || (age >60) || birthDate == "Invalid Date" ) {
     isValid = false;
     document.getElementById("DOBValidationError").classList.remove("hide");
