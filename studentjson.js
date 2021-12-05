@@ -9,11 +9,9 @@ fetch("students.json")
 .then(function(data) {
     var courseSelect = document.getElementById('course')
     var value = courseSelect.options[courseSelect.selectedIndex].text
-    console.log(value)
     var CS = data.filter(function (entry) {
         return entry.Department === value
     });
-    console.log(CS)
     for(i in CS){
         document.getElementById("myTable").innerHTML += `<tr>
                                                         <td>${CS[i].ID}</td>
@@ -43,11 +41,9 @@ function checkSemester(){
     .then(function(data) {
         var semesterSelect = document.getElementById('semester')
         var value = semesterSelect.options[semesterSelect.selectedIndex].value
-        console.log(value)
         for(i in data){
             var arr = data[i].JoiningDate.split("-")
             var MM=arr[1]
-            console.log(MM)
         }
         var winterMonths = ["01","02","03","10","11","12"]
         var summerMonths = ["04","05","06","07","08","09"]
@@ -58,7 +54,6 @@ function checkSemester(){
         }
         )
 
-        console.log(SS)
         for(i in SS){
 
             document.getElementById("myTable").innerHTML += `<tr>
