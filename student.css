@@ -50,10 +50,24 @@ input[type=submit]{
     border-radius: 4px;
     cursor: pointer;
 }
-
+form button{
+    width: 100%;
+    background-color: #3498db;
+    border-radius: 0.4px;
+    border: 2px solid;
+    font-size: 10px;
+    display: block;
+    color: white;
+    margin-top: 20px;
+    cursor: pointer;
+    padding: 10px;
+    font-family: 'Press Start 2P', sans-serif;
+}
 form div.form-action-buttons{
     text-align: right;
 }
+
+
 
 a{
     cursor: pointer;

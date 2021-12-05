@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome back User</title>
     <link rel="stylesheet" href="./student.css">
+
+
 </head>
 <body>
     <div class="adminh1"><h1>Welcome back Staff</h1></div>
@@ -13,98 +15,45 @@
     <table>
       <tr>
           <td>
-              <form autocomplete="off">
-                      <label>Which course would you like to see?</label>
-                      <select name="course" id="course">
-                          <option value="NS">Nursing</option>
-                          <option value="MT">Mathematics</option>
-                          <option value="CS">Computer Science</option>
-                          <option value="ME">Mechanical Engineering</option>
-                          <option value="MB">Marketing / Business Studies</option>
-                          <option value="LW">Law</option>
-                          <option value="AC">Accounting</option>
-                          <option value="AR">Architecture</option>
-                        </select>
-                  </div>
-                  <div  class="form-action-buttons">
-                      <input type="submit" value="See">
-                  </div>
-              </form>
+                    <form>
+                        <label>Which course would you like to see?</label>
+                        <select name="course" id="course">
+                            <option value="Nursing">Nursing</option>
+                            <option value="Mathematics">Mathematics</option>
+                            <option value="Computer Science">Computer Science</option>
+                            <option value="Mechanical Engineering">Mechanical Engineering</option>
+                            <option value="Marketing / Business Studies">Marketing / Business Studies</option>
+                            <option value="Law">Law</option>
+                            <option value="Accounting">Accounting</option>
+                            <option value="Architecture">Architecture</option>
+                          </select>
+                          <button type="button" onclick="checkCourse()">Check this course</button>
+                          <script src="studentjson.js"></script>
+                    </form>
+
+                    
+
+                     
           </td>
           <td>
               <table class="list" id="employeeList">
-                  <thead>
-                      <tr>
-                          <th>Student Id</th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>Date of Birth</th>
-                          <th>Gender</th>
-                          <th>Department</th>
-                          <th>Email</th>
-
-                      </tr>
-                      
-                      
-                  </thead>
-                  
-                  <tbody>
+                <thead>
                     <tr>
-                      <th>90-622-2494</th>
-                      <th>Ginger</th>
-                      <th>Flancinbaum</th>
-                      <th>4/7/1997</th>
-                      <th>Male</th>
-                      <th>CB</th>
-                      <th>gflancinbaum0@nih.gov</th>
-                      
+                        <th>Student Id</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Date of Birth</th>
+                        <th>Gender</th>
+                        <th>Department</th>
+                        <th>Email</th>
+                        <th>Joining Date</th>
 
-                  </tr>
-                  <tr>
-                    <th>58-361-3974</th>
-                    <th>Nicky</th>
-                    <th>Siehard</th>
-                    <th>9/4/1999</th>
-                    <th>Female</th>
-                    <th>CB</th>
-                    <th>nsiehard0@mtv.com</th>
-              
+                    </tr>
+                    
+                </thead>
 
-                </tr>
-                <tr>
-                  <th>03-202-1235</th>
-                  <th>Holly-anne</th>
-                  <th>Boreham</th>
-                  <th>9/19/1999</th>
-                  <th>Male</th>
-                  <th>CB</th>
-                  <th>hboreham1@usa.gov</th>
-            
-
-              </tr>
-              <tr>
-                <th>37-808-1805</th>
-                <th>Lucia</th>
-                <th>Gallyon</th>
-                <th>3/2/2001</th>
-                <th>Female</th>
-                <th>CB</th>
-                <th>lgallyon2@cpanel.net</th>
-          
-
-            </tr>
-            <tr>
-              <th>37-808-1805</th>
-              <th>Rollo</th>
-              <th>Maryska</th>
-              <th>12/8/2000</th>
-              <th>Female</th>
-              <th>CB</th>
-              <th>rmaryska3@linkedin.com</th>
-        
-
-          </tr>
-
+                  <tbody id="myTable">
+ 
                   </tbody>
               </table>
               
@@ -112,8 +61,7 @@
       </tr>
       
   </table>
-  <table class="test"></table>
-  <script src="studentjson.js"></script>
+ 
 
 </body>
 </html>
