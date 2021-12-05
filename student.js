@@ -1,7 +1,7 @@
 var selectedRow = null
 
 function onFormSubmit() {
-    if (validateSI() && validateFN() &&  validateDM()  && validateEM())  {
+    if (validateSI() && validateFN() &&  validateDM()  && validateEM() && validateDOB())  {
         var formData = readFormData();
         if (selectedRow == null)
             insertNewRecord(formData);
@@ -18,13 +18,16 @@ function readFormData() {
     formData["lastname"] = document.getElementById("lastname").value;
     formData["dob"] = document.getElementById("dob").value;
     formData["gender"] = document.querySelector('input[name="gender"]:checked').value;
-    formData["department"] = document.getElementById("department").value;
+    var e = document.getElementById("department");
+    formData["department"] = e.options[e.selectedIndex].text;
     formData["email"] = document.getElementById("email").value;
+    formData["joiningdate"] = document.getElementById("joiningdate").value;
+
     return formData;
 }
 
 function insertNewRecord(data) {
-    var table = document.getElementById("employeeList").getElementsByTagName('tbody')[0];
+    var table = document.getElementById("Table").getElementsByTagName('tbody')[0];
     var newRow = table.insertRow(table.length);
     cell1 = newRow.insertCell(0);
     cell1.innerHTML = data.StudentId;
@@ -41,8 +44,9 @@ function insertNewRecord(data) {
     cell7 = newRow.insertCell(6);
     cell7.innerHTML = data.email;
     cell8 = newRow.insertCell(7);
-    cell8.innerHTML = `<a onClick="onEdit(this)">Edit</a>
-                       <a onClick="onDelete(this)">Delete</a>`;
+    cell8.innerHTML = data.joiningdate;
+/*     cell8.innerHTML = `<a onClick="onEdit(this)">Edit</a>
+                       <a onClick="onDelete(this)">Delete</a>`; */
 }
 
 function resetForm() {
@@ -53,10 +57,11 @@ function resetForm() {
     document.getElementById("gender").value = "";
     document.getElementById("department").value = "";
     document.getElementById("email").value = "";
+    document.getElementById("joiningdate").value = "";
     selectedRow = null;
 }
 
-function onEdit(td) {
+/* function onEdit(td) {
     selectedRow = td.parentElement.parentElement;
     document.getElementById("StudentId").value = selectedRow.cells[0].innerHTML;
     document.getElementById("firstname").value = selectedRow.cells[1].innerHTML;
@@ -65,8 +70,8 @@ function onEdit(td) {
     document.getElementById("gender").value = selectedRow.cells[4].innerHTML;
     document.getElementById("department").value = selectedRow.cells[5].innerHTML;
     document.getElementById("email").value = selectedRow.cells[6].innerHTML;
-}
-function updateRecord(formData) {
+} */
+/* function updateRecord(formData) {
     selectedRow.cells[0].innerHTML = formData.StudentId;
     selectedRow.cells[1].innerHTML = formData.firstname;
     selectedRow.cells[2].innerHTML = formData.lastname;
@@ -79,10 +84,34 @@ function updateRecord(formData) {
 function onDelete(td) {
     if (confirm('Are you sure to delete this record ?')) {
         row = td.parentElement.parentElement;
-        document.getElementById("employeeList").deleteRow(row.rowIndex);
+        document.getElementById("Table").deleteRow(row.rowIndex);
         resetForm();
     }
+} */
+function validateDOB(){
+    isValid = true;
+    var today = new Date();
+    var birthDate = new Date(document.getElementById("dob").value);
+    console.log(birthDate);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+   if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+   }
+   console.log(age);
+   if ((age < 17) || (age >60) || birthDate == "Invalid Date" ) {
+    isValid = false;
+    document.getElementById("DOBValidationError").classList.remove("hide");
+    } else {
+        isValid = true;
+        if (!document.getElementById("DOBValidationError").classList.contains("hide"))
+            document.getElementById("DOBValidationError").classList.add("hide");
+    }
+    return isValid;
+    
+
 }
+
 function validateSI() {
     isValid = true;
     if (document.getElementById("StudentId").value == "") {

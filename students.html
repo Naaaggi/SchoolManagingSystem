@@ -11,6 +11,37 @@
 
 <body>
     <h1>Managing Students</h1>
+       <table>
+    <td>
+        <form>
+            <label>Which course would you like to see?</label>
+            <select name="course" id="course">
+                <option value="EI">School of Engineering – Energy and Information(EI)</option>
+                <option value="TL">School of Engineering – Technology and Life(TL)</option>
+                <option value="BBS">HTW Berlin Business School(BBS)</option>
+                <option value="CB">School of Computing, Communication and Business(CB)</option>
+                <option value="DC">School of Design and Culture(DC)</option>
+              </select>
+              <button type="button" onclick="checkCourse()">Check this course</button>
+              <script src="studentjson.js"></script>
+        </form>
+        <br>
+        <form>
+            <label>Which Joining semester would you like to see?</label>
+            <select name="semester" id="semester">
+                <option value="Winter">Winter</option>
+                <option value="Summer">Summer</option>
+
+              </select>
+              <button type="button" onclick="checkSemester()">Check this semester</button>
+              <script src="studentjson.js"></script>
+        </form>
+
+        
+
+         
+    </td>
+   </table>
     <table>
         <tr>
             <td>
@@ -28,8 +59,19 @@
                         <input type="text" name="lastname" id="lastname">
                     </div>
                     <div>
-                        <label>Date of Birth</label>
+                        <label>Date of Birth</label><label class="validation-error hide" id="DOBValidationError">Invalid date of birth. You must be between 17 and 60.</label>
                         <input type="date" name="dob" id="dob">
+                        <script>
+                        var maxToday = document.getElementById("dob");
+                        var today = new Date();
+                        var dd = String(today.getDate()).padStart(2, '0');
+                        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                        var yyyy = today.getFullYear();
+
+                        today = yyyy + '-' + mm + '-' + dd;
+                        maxToday.setAttribute('max', today);
+
+                        </script>
                     </div>
                     <div>
                         <label>Gender</label>
@@ -52,29 +94,35 @@
                         <label>Email*</label><label class="validation-error hide" id="EmailValidationError">This field is required.</label>
                         <input type="email" name="email" id="email">
                     </div>
+                    <div>
+                        <label>Joining Date</label>
+                        <input type="date" name="joiningdate" id="joiningdate" min="2015-01-01">
+                    </div>
                     <div  class="form-action-buttons">
                         <input type="submit" value="Submit">
                     </div>
                 </form>
             </td>
             <td>
-                <table class="list" id="employeeList">
+                <table class="list" id="Table">
                     <thead>
                         <tr>
                             <th>Student Id</th>
                             <th>First Name</th>
                             <th>Last Name</th>
-                            <th>Date of Birth</th>
                             <th>Gender</th>
+                            <th>Date of Birth</th>
                             <th>Department</th>
                             <th>Email</th>
-                            <th></th>
+                            <th>Joining Date</th>
+                            
+
 
                         </tr>
                         
                     </thead>
                     
-                    <tbody>
+                    <tbody id="myTable">
 
                     </tbody>
                 </table>
